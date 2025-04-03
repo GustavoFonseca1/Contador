@@ -1,0 +1,33 @@
+package br.com.ADS.contador
+
+package com.example.contador
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    private var contador = 0 // Variável para armazenar o valor do contador
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Referências aos elementos da interface
+        val tvContador: TextView = findViewById(R.id.tvContador)
+        val btnAumentar: Button = findViewById(R.id.btnAumentar)
+        val btnDiminuir: Button = findViewById(R.id.btnDiminuir)
+
+        // Ação do botão de aumentar
+        btnAumentar.setOnClickListener {
+            contador++
+            tvContador.text = "Contador: $contador"
+        }
+
+        // Ação do botão de diminuir (não deixa o valor ficar negativo)
+        btnDiminuir.setOnClickListener {
+            if (contador > 0) {
+                contador--
+                tvContador.text = "Contador
